@@ -5,7 +5,6 @@ import me.ANONIMUS.jvm.interfaces.JVMOpcodes;
 import org.apache.commons.lang3.math.NumberUtils;
 
 public class JVMUtils implements JVMOpcodes {
-    public static final int maxStackSize = 1000, maxLocalsSize = 1000;
     public static final int FALSE = 0, TRUE = 1;
 
     public static Number toNumber(Object object) {
@@ -38,208 +37,98 @@ public class JVMUtils implements JVMOpcodes {
         switch (operator) {
             case LT: {
                 switch (numberType) {
-                    case "Long": {
-                        return (first.longValue() < 0) ? TRUE : FALSE;
-                    }
-                    case "Short": {
-                        return (first.shortValue() < 0) ? TRUE : FALSE;
-                    }
-                    case "Float": {
-                        return (first.floatValue() < 0) ? TRUE : FALSE;
-                    }
-                    case "Double": {
-                        return (first.doubleValue() < 0) ? TRUE : FALSE;
-                    }
-                    case "Byte": {
-                        return (first.byteValue() < 0) ? TRUE : FALSE;
-                    }
-                    case "Integer": {
-                        return (first.intValue() < 0) ? TRUE : FALSE;
-                    }
-                    default:
-                        return FALSE;
+                    case "Long": { return (first.longValue() < 0) ? TRUE : FALSE; }
+                    case "Short": { return (first.shortValue() < 0) ? TRUE : FALSE; }
+                    case "Float": { return (first.floatValue() < 0) ? TRUE : FALSE; }
+                    case "Double": { return (first.doubleValue() < 0) ? TRUE : FALSE; }
+                    case "Byte": { return (first.byteValue() < 0) ? TRUE : FALSE; }
+                    case "Integer": { return (first.intValue() < 0) ? TRUE : FALSE; }
+                    default: return FALSE;
                 }
             }
             case EQ: {
                 switch (numberType) {
-                    case "Long": {
-                        return (first.longValue() == 0) ? TRUE : FALSE;
-                    }
-                    case "Short": {
-                        return (first.shortValue() == 0) ? TRUE : FALSE;
-                    }
-                    case "Float": {
-                        return (first.floatValue() == 0) ? TRUE : FALSE;
-                    }
-                    case "Double": {
-                        return (first.doubleValue() == 0) ? TRUE : FALSE;
-                    }
-                    case "Byte": {
-                        return (first.byteValue() == 0) ? TRUE : FALSE;
-                    }
-                    case "Integer": {
-                        return (first.intValue() == 0) ? TRUE : FALSE;
-                    }
-                    default:
-                        return FALSE;
+                    case "Long": { return (first.longValue() == 0) ? TRUE : FALSE; }
+                    case "Short": { return (first.shortValue() == 0) ? TRUE : FALSE; }
+                    case "Float": { return (first.floatValue() == 0) ? TRUE : FALSE; }
+                    case "Double": { return (first.doubleValue() == 0) ? TRUE : FALSE; }
+                    case "Byte": { return (first.byteValue() == 0) ? TRUE : FALSE; }
+                    case "Integer": { return (first.intValue() == 0) ? TRUE : FALSE; }
+                    default: return FALSE;
                 }
             }
 
             case ADD:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() + second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() + second.shortValue();
-                    }
-                    case "Float": {
-                        return first.floatValue() + second.floatValue();
-                    }
-                    case "Double": {
-                        return first.doubleValue() + second.doubleValue();
-                    }
-                    case "Byte": {
-                        return first.byteValue() + second.byteValue();
-                    }
-                    default:
-                        return first.intValue() + second.intValue();
+                    case "Long": { return first.longValue() + second.longValue(); }
+                    case "Short": { return first.shortValue() + second.shortValue(); }
+                    case "Float": { return first.floatValue() + second.floatValue(); }
+                    case "Double": { return first.doubleValue() + second.doubleValue(); }
+                    case "Byte": { return first.byteValue() + second.byteValue(); }
+                    default: return first.intValue() + second.intValue();
                 }
             case SUB:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() - second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() - second.shortValue();
-                    }
-                    case "Float": {
-                        return first.floatValue() - second.floatValue();
-                    }
-                    case "Double": {
-                        return first.doubleValue() - second.doubleValue();
-                    }
-                    case "Byte": {
-                        return first.byteValue() - second.byteValue();
-                    }
-                    default:
-                        return first.intValue() - second.intValue();
+                    case "Long": { return first.longValue() - second.longValue(); }
+                    case "Short": { return first.shortValue() - second.shortValue(); }
+                    case "Float": { return first.floatValue() - second.floatValue(); }
+                    case "Double": { return first.doubleValue() - second.doubleValue(); }
+                    case "Byte": { return first.byteValue() - second.byteValue(); }
+                    default: return first.intValue() - second.intValue();
                 }
             case MUL:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() * second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() * second.shortValue();
-                    }
-                    case "Float": {
-                        return first.floatValue() * second.floatValue();
-                    }
-                    case "Double": {
-                        return first.doubleValue() * second.doubleValue();
-                    }
-                    case "Byte": {
-                        return first.byteValue() * second.byteValue();
-                    }
-                    default:
-                        return first.intValue() * second.intValue();
+                    case "Long": { return first.longValue() * second.longValue(); }
+                    case "Short": { return first.shortValue() * second.shortValue(); }
+                    case "Float": { return first.floatValue() * second.floatValue(); }
+                    case "Double": { return first.doubleValue() * second.doubleValue(); }
+                    case "Byte": { return first.byteValue() * second.byteValue(); }
+                    default: return first.intValue() * second.intValue();
                 }
             case DIV:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() / second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() / second.shortValue();
-                    }
-                    case "Float": {
-                        return first.floatValue() / second.floatValue();
-                    }
-                    case "Double": {
-                        return first.doubleValue() / second.doubleValue();
-                    }
-                    case "Byte": {
-                        return first.byteValue() / second.byteValue();
-                    }
-                    default:
-                        return first.intValue() / second.intValue();
+                    case "Long": { return first.longValue() / second.longValue(); }
+                    case "Short": { return first.shortValue() / second.shortValue(); }
+                    case "Float": { return first.floatValue() / second.floatValue(); }
+                    case "Double": { return first.doubleValue() / second.doubleValue(); }
+                    case "Byte": { return first.byteValue() / second.byteValue(); }
+                    default: return first.intValue() / second.intValue();
                 }
             case REM:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() % second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() % second.shortValue();
-                    }
-                    case "Float": {
-                        return first.floatValue() % second.floatValue();
-                    }
-                    case "Double": {
-                        return first.doubleValue() % second.doubleValue();
-                    }
-                    case "Byte": {
-                        return first.byteValue() % second.byteValue();
-                    }
-                    default:
-                        return first.intValue() % second.intValue();
+                    case "Long": { return first.longValue() % second.longValue(); }
+                    case "Short": { return first.shortValue() % second.shortValue(); }
+                    case "Float": { return first.floatValue() % second.floatValue(); }
+                    case "Double": { return first.doubleValue() % second.doubleValue(); }
+                    case "Byte": { return first.byteValue() % second.byteValue(); }
+                    default: return first.intValue() % second.intValue();
                 }
             case XOR:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() ^ second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() ^ second.shortValue();
-                    }
+                    case "Long": { return first.longValue() ^ second.longValue(); }
+                    case "Short": { return first.shortValue() ^ second.shortValue(); }
                     case "Float":
-                    case "Double": {
-                        throw mathError;
-                    }
-                    case "Byte": {
-                        return first.byteValue() ^ second.byteValue();
-                    }
-                    default:
-                        return first.intValue() ^ second.intValue();
+                    case "Double": { throw mathError; }
+                    case "Byte": { return first.byteValue() ^ second.byteValue(); }
+                    default: return first.intValue() ^ second.intValue();
                 }
             case OR:
                 switch (numberType) {
-                    case "Long": {
-                        return first.longValue() | second.longValue();
-                    }
-                    case "Short": {
-                        return first.shortValue() | second.shortValue();
-                    }
+                    case "Long": { return first.longValue() | second.longValue(); }
+                    case "Short": { return first.shortValue() | second.shortValue(); }
                     case "Float":
-                    case "Double": {
-                        throw mathError;
-                    }
-                    case "Byte": {
-                        return first.byteValue() | second.byteValue();
-                    }
-                    default:
-                        return first.intValue() | second.intValue();
+                    case "Double": { throw mathError; }
+                    case "Byte": { return first.byteValue() | second.byteValue(); }
+                    default: return first.intValue() | second.intValue();
                 }
             case NEGATIVE:
                 switch (numberType) {
-                    case "Long": {
-                        return -first.longValue();
-                    }
-                    case "Short": {
-                        return -first.shortValue();
-                    }
-                    case "Float": {
-                        return -first.floatValue();
-                    }
-                    case "Double": {
-                        return -first.doubleValue();
-                    }
-                    case "Byte": {
-                        return -first.byteValue();
-                    }
-                    default:
-                        return -first.intValue();
+                    case "Long": { return -first.longValue(); }
+                    case "Short": { return -first.shortValue(); }
+                    case "Float": { return -first.floatValue(); }
+                    case "Double": { return -first.doubleValue(); }
+                    case "Byte": { return -first.byteValue(); }
+                    default: return -first.intValue();
                 }
         }
 
